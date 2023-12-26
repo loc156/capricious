@@ -8,7 +8,7 @@ namespace des{
         //Drop class
         template<class T>class Drop {
         private:
-            T* drop = NULL;
+            T* drop = 0;
             int size_len = 0;
             int point = 0;
         public:
