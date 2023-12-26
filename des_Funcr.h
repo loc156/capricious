@@ -10,7 +10,7 @@ namespace des{
             int other = Max(arg...);
             return (first>=other)?first:other;
         }
-        template<typename T>T Max(const Teis<T> p){
+        template<typename T>T Max(Teis<T> p){
             int max=p[0];
             for(int i=0;i<p.getlengh();i++){max=(max>=p[i])?max:p[i];}
             return max;
@@ -22,7 +22,7 @@ namespace des{
             int other = Max(arg...);
             return (first<=other)?first:other;
         }
-        template<typename T>T Min(const Teis<T> p){
+        template<typename T>T Min(Teis<T> p){
             int min=p[0];
             for(int i=0;i<p.getlengh();i++){min=(min<=p[i])?min:p[i];}
             return min;
