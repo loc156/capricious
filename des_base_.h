@@ -11,6 +11,9 @@ namespace des{
                 _imemr = new _dis_key__ijurt__();
                 _ID_=_id_;
             }
+            ~_dis_key_() {
+                delete _imemr;
+            }
             bool operator==(const _dis_key_& diskey){
                 return _imemr==diskey._imemr;
             }
@@ -32,6 +35,9 @@ namespace des{
             int point = 0;
             int lengh = 0;
         public:
+            ~_base_temLis_() {
+                delete[] list;
+            }
             int getlengh(){
                 return point;
             }
