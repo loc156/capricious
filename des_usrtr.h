@@ -19,6 +19,9 @@ namespace des{
                     drop[i] = 0;
                 }
             }
+            ~Drop() {
+                delete[] drop;
+            }
             int& getPostVar(int n) {
                 return drop[n];
             }
