@@ -7,8 +7,6 @@
 #include<list>
 #include<vector>
 
-#ifdef _EASYX_DEPRECATE
-
 #define _NEWNAMESPACE namespace
 #define DEFNAME typedef
 
@@ -315,5 +313,4 @@ _NEWNAMESPACE des
 	};
 
 }
-#endif
 #endif
