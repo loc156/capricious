@@ -1,6 +1,6 @@
-#define DEFDCVEASYINIT
+#ifndef DEFDCVEASYINIT
 
-#ifdef DEFDCVEASYINIT
+#define DEFDCVEASYINIT
 
 #include<graphics.h>
 #include<string>
@@ -24,7 +24,7 @@ _NEWNAMESPACE des
 #define _DES_
 {
 
-	//²¿¼ş»ùÀà,²»½¨ÒéÊµÀı»¯¶ÔÏó
+	//éƒ¨ä»¶åŸºç±»,ä¸å»ºè®®å®ä¾‹åŒ–å¯¹è±¡
 	_DES_ class Win_base_model
 	#define WINBASEMODEL
 	{
@@ -34,27 +34,27 @@ _NEWNAMESPACE des
 		}
 	};
 
-	//´°¿ÚÀà
+	//çª—å£ç±»
 	_DES_ DEFNAME class GraphicsWin
 	#define GRAPHWIN
 	{
 
 	private:
 
-		//»ù±¾ÊôĞÔ
+		//åŸºæœ¬å±æ€§
 		_DES_ GRAPHWIN int win_x = 0;
 		_DES_ GRAPHWIN int win_y = 0;
 		_DES_ GRAPHWIN int win_flag = 0;
 
-		//µ±Ç°´°¿Ú´ò¿ª×´Ì¬
+		//å½“å‰çª—å£æ‰“å¼€çŠ¶æ€
 		_DES_ GRAPHWIN bool isopen = false;
 
-		//²¿¼ş¶ÔÏóÈİÆ÷
+		//éƒ¨ä»¶å¯¹è±¡å®¹å™¨
 		_DES_ GRAPHWIN std::list<Win_base_model*> children;
 
 	public:
 
-		//²ÎÊıÉèÖÃº¯Êı
+		//å‚æ•°è®¾ç½®å‡½æ•°
 		_DES_ GRAPHWIN bool setWidth(int x) {
 			if (x <= 0)
 				return 1;
@@ -75,7 +75,7 @@ _NEWNAMESPACE des
 		}
 
 
-		//¶ÔÏóÈİÆ÷²Ù×÷º¯Êı
+		//å¯¹è±¡å®¹å™¨æ“ä½œå‡½æ•°
 		_DES_ GRAPHWIN void addChild(Win_base_model* child) {
 			children.push_back(child);
 		}
@@ -86,7 +86,7 @@ _NEWNAMESPACE des
 		}
 
 
-		//´°¿ÚÏÔÊ¾&Ë¢ĞÂº¯Êı£¨³õ´ÎÏÔÊ¾´°¿Úµ÷ÓÃ´Ëº¯Êı£¬¸Ä±ä´°¿ÚÄÚÈİºóµ÷ÓÃ´Ëº¯ÊıË¢ĞÂ£©
+		//çª—å£æ˜¾ç¤º&åˆ·æ–°å‡½æ•°ï¼ˆåˆæ¬¡æ˜¾ç¤ºçª—å£è°ƒç”¨æ­¤å‡½æ•°ï¼Œæ”¹å˜çª—å£å†…å®¹åè°ƒç”¨æ­¤å‡½æ•°åˆ·æ–°ï¼‰
 		_DES_ GRAPHWIN void show() {
 			if (!isopen) {
 				initgraph(win_x, win_y, win_flag);
@@ -97,13 +97,13 @@ _NEWNAMESPACE des
 				i->show();
 			}
 		}
-		//´°¿Ú¹Ø±Õº¯Êı
+		//çª—å£å…³é—­å‡½æ•°
 		_DES_ GRAPHWIN void close() {
 			closegraph();
 		}
 
 
-		//¹¹Ôìº¯Êı
+		//æ„é€ å‡½æ•°
 		_DES_ _CONSTRUCTOR GRAPHWIN GraphicsWin() {
 			__NONE_THING__
 		}
@@ -118,22 +118,22 @@ _NEWNAMESPACE des
 
 	}GWin;
 
-	//ÎÄ±¾±í²¿¼şÀà
+	//æ–‡æœ¬è¡¨éƒ¨ä»¶ç±»
 	_DES_ class TextList :public Win_base_model
 	#define TEXTLIST
 	{
 	private:
 
-		//Î»ÖÃÊôĞÔ
+		//ä½ç½®å±æ€§
 		_DES_ TEXTLIST int this_x = 0;
 		_DES_ TEXTLIST int this_y = 0;
 
-		//×Ô¶¨Òå×ÖÌå¸ñÊ½º¯Êı±äÁ¿
+		//è‡ªå®šä¹‰å­—ä½“æ ¼å¼å‡½æ•°å˜é‡
 		_DES_ TEXTLIST void DEFFUNC(DEFPOINTER(setFstyle), (void)) = nullptr;
 
 	public:
 
-		//×ÖÌå¸ñÊ½½Ó¿Ú±äÁ¿
+		//å­—ä½“æ ¼å¼æ¥å£å˜é‡
 		_DES_ TEXTLIST LOGFONT style{
 			.lfHeight = 10,
 			.lfWidth = 0,
@@ -141,26 +141,26 @@ _NEWNAMESPACE des
 			.lfOrientation = 0,
 			.lfWeight = 0
 		};
-		//×ÖÌåÑÕÉ«½Ó¿Ú±äÁ¿
+		//å­—ä½“é¢œè‰²æ¥å£å˜é‡
 		_DES_ TEXTLIST COLORREF color = RGB(255, 255, 255);
-		//×ÖÌåÎÄ±¾½Ó¿Ú±äÁ¿
+		//å­—ä½“æ–‡æœ¬æ¥å£å˜é‡
 		_DES_ TEXTLIST std::string text;
 
 	public:
 
-		//²ÎÊıÉèÖÃº¯Êı
+		//å‚æ•°è®¾ç½®å‡½æ•°
 		_DES_ TEXTLIST void setPosition(int x, int y) {
 			this_x = x;
 			this_y = y;
 		}
 
-		//×Ô¶¨ÒåÊä³ö¸ñÊ½º¯Êı
+		//è‡ªå®šä¹‰è¾“å‡ºæ ¼å¼å‡½æ•°
 		_DES_ TEXTLIST void insertStyleFunc(
 			void DEFFUNC(DEFPOINTER(sfunc), (void))) {
 			setFstyle = sfunc;
 		}
 
-		//ÖØÔØ¸¸Ààº¯Êı£¬½öÓÃÓÚÄÚ²¿Î¬»¤£¬ÇëÎğµ÷ÓÃ
+		//é‡è½½çˆ¶ç±»å‡½æ•°ï¼Œä»…ç”¨äºå†…éƒ¨ç»´æŠ¤ï¼Œè¯·å‹¿è°ƒç”¨
 		_DES_ TEXTLIST void show() override {
 			if (setFstyle != nullptr)
 				setFstyle();
@@ -173,21 +173,21 @@ _NEWNAMESPACE des
 
 	};
 
-	//ÎÄ±¾ºĞ²¿¼şÀà
+	//æ–‡æœ¬ç›’éƒ¨ä»¶ç±»
 	_DES_ class TextBox :public Win_base_model
 	#define TEXTBOX
 	{
 	private:
 
-		//·¶Î§ÊôĞÔ
+		//èŒƒå›´å±æ€§
 		_DES_ TEXTBOX RECT* pRect = new RECT;
 		_DES_ TEXTBOX UINT uFormat = 0;
-		//×Ô¶¨Òå×ÖÌå¸ñÊ½º¯Êı±äÁ¿
+		//è‡ªå®šä¹‰å­—ä½“æ ¼å¼å‡½æ•°å˜é‡
 		_DES_ TEXTBOX void DEFFUNC(DEFPOINTER(setFstyle), (void)) = nullptr;
 
 	public:
 
-		//×ÖÌå¸ñÊ½½Ó¿Ú±äÁ¿
+		//å­—ä½“æ ¼å¼æ¥å£å˜é‡
 		_DES_ TEXTBOX LOGFONT style{
 			.lfHeight = 10,
 			.lfWidth = 0,
@@ -195,14 +195,14 @@ _NEWNAMESPACE des
 			.lfOrientation = 0,
 			.lfWeight = 0
 		};
-		//×ÖÌåÑÕÉ«½Ó¿Ú±äÁ¿
+		//å­—ä½“é¢œè‰²æ¥å£å˜é‡
 		_DES_ TEXTBOX COLORREF color = RGB(255, 255, 255);
-		//×ÖÌåÎÄ±¾½Ó¿Ú±äÁ¿
+		//å­—ä½“æ–‡æœ¬æ¥å£å˜é‡
 		_DES_ TEXTBOX std::string text;
 
 	public:
 
-		//¾ØÕó·¶Î§ÉèÖÃº¯Êı
+		//çŸ©é˜µèŒƒå›´è®¾ç½®å‡½æ•°
 		_DES_ TEXTBOX void setRect(RECT* rect) {
 			pRect = rect;
 		}
@@ -214,18 +214,18 @@ _NEWNAMESPACE des
 			pRect->top = top;
 		}
 
-		//ÉèÖÃ×Ö·û¸ñÊ½»¯·½·¨
+		//è®¾ç½®å­—ç¬¦æ ¼å¼åŒ–æ–¹æ³•
 		_DES_ TEXTBOX void setFormat(UINT format) {
 			uFormat = format;
 		}
 
-		//×Ô¶¨ÒåÊä³ö¸ñÊ½º¯Êı
+		//è‡ªå®šä¹‰è¾“å‡ºæ ¼å¼å‡½æ•°
 		_DES_ TEXTBOX void insertStyleFunc(
 			void DEFFUNC(DEFPOINTER(sfunc), (void))) {
 			setFstyle = sfunc;
 		}
 
-		//ÖØÔØ¸¸Ààº¯Êı£¬½öÓÃÓÚÄÚ²¿Î¬»¤£¬ÇëÎğµ÷ÓÃ
+		//é‡è½½çˆ¶ç±»å‡½æ•°ï¼Œä»…ç”¨äºå†…éƒ¨ç»´æŠ¤ï¼Œè¯·å‹¿è°ƒç”¨
 		_DES_ TEXTBOX void show() override {
 			if (setFstyle != nullptr)
 				setFstyle();
@@ -238,44 +238,44 @@ _NEWNAMESPACE des
 
 	};
 
-	//¾²Ì¬Í¼Æ¬²¿¼şÀà
+	//é™æ€å›¾ç‰‡éƒ¨ä»¶ç±»
 	_DES_ class Image :public Win_base_model {
 	#define IMAGEC
 	private:
 
-		//Î»ÖÃÊôĞÔ
+		//ä½ç½®å±æ€§
 		_DES_ IMAGEC int this_x = 0;
 		_DES_ IMAGEC int this_y = 0;
 
-		//Í¼Æ¬±äÁ¿
+		//å›¾ç‰‡å˜é‡
 		_DES_ IMAGEC IMAGE img;
 
 	public:
 
-		//ÉèÖÃÎ»ÖÃº¯Êı
+		//è®¾ç½®ä½ç½®å‡½æ•°
 		_DES_ IMAGEC void setPosition(int x, int y) {
 			this_x = x;
 			this_y = y;
 		}
 
-		//Í¼Æ¬¼ÓÔØº¯Êı
+		//å›¾ç‰‡åŠ è½½å‡½æ•°
 		_DES_ IMAGEC void load(std::string path, int nWidth = 0,int nHeight = 0) {
 			loadimage(&img, path.c_str(), nWidth, nHeight, true);
 		}
 
-		//ÖØÔØ¸¸Ààº¯Êı£¬½öÓÃÓÚÄÚ²¿Î¬»¤£¬ÇëÎğµ÷ÓÃ
+		//é‡è½½çˆ¶ç±»å‡½æ•°ï¼Œä»…ç”¨äºå†…éƒ¨ç»´æŠ¤ï¼Œè¯·å‹¿è°ƒç”¨
 		_DES_ IMAGEC void show() override {
 			putimage(this_x, this_y, &img);
 		}
 
 	};
 
-	//¾²Ì¬Í¼Æ¬½ØÈ¡²¿¼şÀà
+	//é™æ€å›¾ç‰‡æˆªå–éƒ¨ä»¶ç±»
 	_DES_ class ChangeImage :public Win_base_model {
 	#define CHANGEIMAGEC
 	private:
 
-		//Î»ÖÃÊôĞÔ
+		//ä½ç½®å±æ€§
 		_DES_ CHANGEIMAGEC int this_x = 0;
 		_DES_ CHANGEIMAGEC int this_y = 0;
 		_DES_ CHANGEIMAGEC int img_x = 0;
@@ -283,18 +283,18 @@ _NEWNAMESPACE des
 		_DES_ CHANGEIMAGEC int img_w = 0;
 		_DES_ CHANGEIMAGEC int img_h = 0;
 
-		//Í¼Æ¬±äÁ¿
+		//å›¾ç‰‡å˜é‡
 		_DES_ CHANGEIMAGEC IMAGE img;
 
 	public:
 
-		//ÉèÖÃÎ»ÖÃº¯Êı
+		//è®¾ç½®ä½ç½®å‡½æ•°
 		_DES_ CHANGEIMAGEC void setPosition(int x, int y) {
 			this_x = x;
 			this_y = y;
 		}
 
-		//ÉèÖÃ½ØÈ¡Í¼Æ¬Î»ÖÃº¯Êı
+		//è®¾ç½®æˆªå–å›¾ç‰‡ä½ç½®å‡½æ•°
 		_DES_ CHANGEIMAGEC void setImgPosition(int x, int y, int w, int h) {
 			img_x = x;
 			img_y = y;
@@ -302,12 +302,12 @@ _NEWNAMESPACE des
 			img_h = h;
 		}
 
-		//Í¼Æ¬¼ÓÔØº¯Êı
+		//å›¾ç‰‡åŠ è½½å‡½æ•°
 		_DES_ CHANGEIMAGEC void load(std::string path, int nWidth = 0, int nHeight = 0) {
 			loadimage(&img, path.c_str(), nWidth, nHeight, true);
 		}
 
-		//ÖØÔØ¸¸Ààº¯Êı£¬½öÓÃÓÚÄÚ²¿Î¬»¤£¬ÇëÎğµ÷ÓÃ
+		//é‡è½½çˆ¶ç±»å‡½æ•°ï¼Œä»…ç”¨äºå†…éƒ¨ç»´æŠ¤ï¼Œè¯·å‹¿è°ƒç”¨
 		_DES_ CHANGEIMAGEC void show() override {
 			putimage(this_x, this_y, img_w, img_h, &img, img_x, img_y);
 		}
